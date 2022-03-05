@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 40px;
+}
+
+.rps-img {
+    display: flex;
+}
+
+.gameText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    gap: 400px;
+    margin: 50px;
+    font-weight: bold;
+}

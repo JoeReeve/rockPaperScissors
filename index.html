@@ -5,9 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
+    
+    <div class="buttons">
+        <div class="rps-img" id="rock-btn">
+            <img src="./img/rock.png">
+        </div>
+        <div class="rps-img" id="paper-btn">
+            <img src="./img/paper.png">
+        </div>
+        <div class="rps-img" id="scissors-btn">
+            <img src="./img/scissors.png">
+        </div>
+    </div>
+
+    <div class="gameText">
+        <p>The game is rock paper scissors. You have 5 lives. The battle between man vs machine begins now. (click each image to choose your play)</p>
+        <div class="results">
+            <p id="user-lives">User Lives: </p>
+            <p id="comp-lives">Computer Lives: </p>
+        </div>
+    </div>
+
+
+    
+    
 </body>
 </html>

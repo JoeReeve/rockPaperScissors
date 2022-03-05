@@ -1,14 +1,36 @@
-numUserLives = 5
-numCompLives = 5
+let numUserLives = 5;
+let numCompLives = 5;
+
+var userLivesText = document.getElementById("user-lives");
+var compLivesText = document.getElementById("comp-lives");
+userLivesText.textContent = `User Lives: ${numUserLives}`;
+compLivesText.textContent = `Computer Lives: ${numCompLives}`; 
+
+
+const rockBtn = document.getElementById('rock-btn');
+rockBtn.addEventListener('click', function(e) {
+    singleRound('rock', computerPlay());
+    checkLives();
+})
+
+const paperBtn = document.getElementById('paper-btn');
+paperBtn.addEventListener('click', function(e) {
+    singleRound('paper', computerPlay());
+    checkLives();
+})
+
+const scissorsBtn = document.getElementById('scissors-btn');
+scissorsBtn.addEventListener('click', function(e) {
+    singleRound('scissors', computerPlay());
+    checkLives();
+})
 
 
 function computerPlay() {
     randNum = Math.floor(Math.random() * 3)
     switch(randNum) {
         case 0: return "rock"
-        break
         case 1: return "paper"
-        break
         case 2: return "scissors"
     }
 }
@@ -49,28 +71,36 @@ function singleRound(playerSelection, computerSelection) {
                 alert("You tie! Both picked scissors")
             }
         break
-        default: alert("Hmm, something went wrong here. Sorry!")
+        default: alert("Hmm, something went wrong here. Sorry!");
     }
+        //displaying the number of lives for the computer and the computer
+    
+    userLivesText.textContent = `User Lives: ${numUserLives}`
+    compLivesText.textContent = `Computer Lives: ${numCompLives}` 
 }
 
-function game() {
-    while (numCompLives > 0 && numUserLives > 0) {
-        var playerSelection = window.prompt("Rock, paper, or scissors; which will you decide??").toLowerCase()
-        var computerSelection = computerPlay()
-
-        if (playerSelection !== "paper" && playerSelection !== "scissors" && playerSelection !== "rock") {
-        alert("That was not an option!")
-        }
-        singleRound(playerSelection, computerSelection)
-        console.log("User lives left:" + numUserLives)
-        console.log("Computer lives left:" + numCompLives)
-    }
+function checkLives() {
     if (numCompLives === 0) {
-        console.log("You win! Your mastery of this game is a feat to behold")
-    } else {
-        console.log("You lost! And the computer was picking randomly every time..")
+        alert("Amazing!! Humans win this time! But can you do it again??");
+        numCompLives = 5;
+        numUserLives = 5;
+        userLivesText.textContent = `User Lives: ${numUserLives}`
+        compLivesText.textContent = `Computer Lives: ${numCompLives}` 
+    }
+    
+    if (numUserLives === 0) {
+        alert("You lose! And we're now one step closer to human irrelevancy.. Maybe you'll do better next time.")
+        numCompLives = 5;
+        numUserLives = 5;
+        userLivesText.textContent = `User Lives: ${numUserLives}`
+        compLivesText.textContent = `Computer Lives: ${numCompLives}` 
     }
 }
 
-game()
+
+
+
+
+
+
 
